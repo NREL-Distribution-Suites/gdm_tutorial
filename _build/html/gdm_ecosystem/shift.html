@@ -1,0 +1,778 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SHIFT &#8212; Grid-Data-Models</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gdm_ecosystem/shift';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ERAD" href="erad.html" />
+    <link rel="prev" title="DiTTo" href="ditto.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/gdm_logo.jpeg" class="logo__image only-light" alt="Grid-Data-Models - Home"/>
+    <script>document.write(`<img src="../_static/gdm_logo.jpeg" class="logo__image only-dark" alt="Grid-Data-Models - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to the Grid-Data-Models (GDM) Tutorial
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installing Dependencies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Intro to GDM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gdm_intro/gdm_intro.html">The GDM Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gdm_intro/data_models.html">On GDM Data Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gdm_intro/units.html">Managing Physical Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gdm_intro/timeseries.html">Managing Time-Series Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">GDM Loader</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gdmloader/gdmloader.html">Working with GDMLOADER</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">DistributionSystem</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../dist_system/import_export.html">Importing and Exporting Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dist_system/plotting.html">Plotting GDM Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dist_system/graphs.html">System Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dist_system/network_reduction.html">Network Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dist_system/tracked_changes.html">Tracking Changes in GDM</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The GDM Ecosystem</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ditto.html">DiTTo</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">SHIFT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erad.html">ERAD</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgdm_ecosystem/shift.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/gdm_ecosystem/shift.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>SHIFT</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="shift">
+<h1>SHIFT<a class="headerlink" href="#shift" title="Link to this heading">#</a></h1>
+<p>Python package for developing power distribution model using opensource data. This package uses Grid Data Models to represent power distribution components and Ditto for writing case files specific to simulators such as OpenDSS, Cyme, Synergi and others.</p>
+<p>Primarily this package will leverage open street parcels, road network to build out distribution model.</p>
+<p>For model conversion. We will need to install DiTto. To do that, use the command below</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">nrel</span><span class="o">-</span><span class="n">shift</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: nrel-shift in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (0.3.0)
+Requirement already satisfied: geopy in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from nrel-shift) (2.4.1)
+Requirement already satisfied: grid-data-models~=2.0.0 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from nrel-shift) (2.0.0)
+Requirement already satisfied: importlib-metadata in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from nrel-shift) (8.6.1)
+Requirement already satisfied: osmnx in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from nrel-shift) (2.0.2)
+Requirement already satisfied: plotly in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from nrel-shift) (6.0.1)
+Requirement already satisfied: scikit-learn in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from nrel-shift) (1.6.1)
+Requirement already satisfied: click~=8.1.7 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from grid-data-models~=2.0.0-&gt;nrel-shift) (8.1.8)
+Requirement already satisfied: geopandas in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from grid-data-models~=2.0.0-&gt;nrel-shift) (1.0.1)
+Requirement already satisfied: infrasys~=0.4.0 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from grid-data-models~=2.0.0-&gt;nrel-shift) (0.4.0)
+Requirement already satisfied: networkx in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from grid-data-models~=2.0.0-&gt;nrel-shift) (2.8.8)
+Requirement already satisfied: pandas~=2.2.3 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from grid-data-models~=2.0.0-&gt;nrel-shift) (2.2.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pydantic~=2.10.6 (from grid-data-models~=2.0.0-&gt;nrel-shift)
+  Using cached pydantic-2.10.6-py3-none-any.whl.metadata (30 kB)
+Requirement already satisfied: geographiclib&lt;3,&gt;=1.52 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from geopy-&gt;nrel-shift) (2.0)
+Requirement already satisfied: zipp&gt;=3.20 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from importlib-metadata-&gt;nrel-shift) (3.21.0)
+Requirement already satisfied: numpy&gt;=1.22 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from osmnx-&gt;nrel-shift) (1.26.4)
+Requirement already satisfied: requests&gt;=2.27 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from osmnx-&gt;nrel-shift) (2.32.3)
+Requirement already satisfied: shapely&gt;=2.0 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from osmnx-&gt;nrel-shift) (2.1.0)
+Requirement already satisfied: narwhals&gt;=1.15.1 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from plotly-&gt;nrel-shift) (1.36.0)
+Requirement already satisfied: packaging in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from plotly-&gt;nrel-shift) (25.0)
+Requirement already satisfied: scipy&gt;=1.6.0 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from scikit-learn-&gt;nrel-shift) (1.15.2)
+Requirement already satisfied: joblib&gt;=1.2.0 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from scikit-learn-&gt;nrel-shift) (1.4.2)
+Requirement already satisfied: threadpoolctl&gt;=3.1.0 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from scikit-learn-&gt;nrel-shift) (3.6.0)
+Requirement already satisfied: pyogrio&gt;=0.7.2 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from geopandas-&gt;grid-data-models~=2.0.0-&gt;nrel-shift) (0.10.0)
+Requirement already satisfied: pyproj&gt;=3.3.0 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from geopandas-&gt;grid-data-models~=2.0.0-&gt;nrel-shift) (3.7.1)
+Requirement already satisfied: loguru~=0.7.2 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from infrasys~=0.4.0-&gt;grid-data-models~=2.0.0-&gt;nrel-shift) (0.7.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting numpy&gt;=1.22 (from osmnx-&gt;nrel-shift)
+  Using cached numpy-2.2.5-cp312-cp312-macosx_14_0_arm64.whl.metadata (62 kB)
+Requirement already satisfied: pint~=0.23 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from infrasys~=0.4.0-&gt;grid-data-models~=2.0.0-&gt;nrel-shift) (0.24.4)
+Requirement already satisfied: pyarrow~=19.0 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from infrasys~=0.4.0-&gt;grid-data-models~=2.0.0-&gt;nrel-shift) (19.0.1)
+Requirement already satisfied: rich~=13.7.1 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from infrasys~=0.4.0-&gt;grid-data-models~=2.0.0-&gt;nrel-shift) (13.7.1)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from pandas~=2.2.3-&gt;grid-data-models~=2.0.0-&gt;nrel-shift) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from pandas~=2.2.3-&gt;grid-data-models~=2.0.0-&gt;nrel-shift) (2025.2)
+Requirement already satisfied: tzdata&gt;=2022.7 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from pandas~=2.2.3-&gt;grid-data-models~=2.0.0-&gt;nrel-shift) (2025.2)
+Requirement already satisfied: annotated-types&gt;=0.6.0 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from pydantic~=2.10.6-&gt;grid-data-models~=2.0.0-&gt;nrel-shift) (0.7.0)
+Requirement already satisfied: pydantic-core==2.27.2 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from pydantic~=2.10.6-&gt;grid-data-models~=2.0.0-&gt;nrel-shift) (2.27.2)
+Requirement already satisfied: typing-extensions&gt;=4.12.2 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from pydantic~=2.10.6-&gt;grid-data-models~=2.0.0-&gt;nrel-shift) (4.13.2)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from requests&gt;=2.27-&gt;osmnx-&gt;nrel-shift) (3.4.1)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from requests&gt;=2.27-&gt;osmnx-&gt;nrel-shift) (3.10)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from requests&gt;=2.27-&gt;osmnx-&gt;nrel-shift) (2.4.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from requests&gt;=2.27-&gt;osmnx-&gt;nrel-shift) (2025.1.31)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: platformdirs&gt;=2.1.0 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from pint~=0.23-&gt;infrasys~=0.4.0-&gt;grid-data-models~=2.0.0-&gt;nrel-shift) (4.3.7)
+Requirement already satisfied: flexcache&gt;=0.3 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from pint~=0.23-&gt;infrasys~=0.4.0-&gt;grid-data-models~=2.0.0-&gt;nrel-shift) (0.3)
+Requirement already satisfied: flexparser&gt;=0.4 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from pint~=0.23-&gt;infrasys~=0.4.0-&gt;grid-data-models~=2.0.0-&gt;nrel-shift) (0.4)
+Requirement already satisfied: six&gt;=1.5 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas~=2.2.3-&gt;grid-data-models~=2.0.0-&gt;nrel-shift) (1.17.0)
+Requirement already satisfied: markdown-it-py&gt;=2.2.0 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from rich~=13.7.1-&gt;infrasys~=0.4.0-&gt;grid-data-models~=2.0.0-&gt;nrel-shift) (3.0.0)
+Requirement already satisfied: pygments&lt;3.0.0,&gt;=2.13.0 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from rich~=13.7.1-&gt;infrasys~=0.4.0-&gt;grid-data-models~=2.0.0-&gt;nrel-shift) (2.19.1)
+Requirement already satisfied: mdurl~=0.1 in /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages (from markdown-it-py&gt;=2.2.0-&gt;rich~=13.7.1-&gt;infrasys~=0.4.0-&gt;grid-data-models~=2.0.0-&gt;nrel-shift) (0.1.2)
+Using cached numpy-2.2.5-cp312-cp312-macosx_14_0_arm64.whl (5.2 MB)
+Using cached pydantic-2.10.6-py3-none-any.whl (431 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: numpy, pydantic
+  Attempting uninstall: numpy
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Found existing installation: numpy 1.26.4
+    Uninstalling numpy-1.26.4:
+      Successfully uninstalled numpy-1.26.4
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Attempting uninstall: pydantic
+    Found existing installation: pydantic 1.10.22
+    Uninstalling pydantic-1.10.22:
+      Successfully uninstalled pydantic-1.10.22
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span>
+<span class=" -Color -Color-Red">nrel-erad 0.0.1 requires pydantic~=1.10.14, but you have pydantic 2.10.6 which is incompatible.</span>
+<span class=" -Color -Color-Red">ditto-py 0.2.4 requires numpy~=1.20, but you have numpy 2.2.5 which is incompatible.</span>
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed numpy-2.2.5 pydantic-2.10.6
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+<p>We start by loading a sample GDM system using the gdmloader.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">gdm.distribution</span><span class="w"> </span><span class="kn">import</span> <span class="n">DistributionSystem</span>
+
+<span class="n">catalog</span> <span class="o">=</span> <span class="n">DistributionSystem</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="s2">&quot;/Users/alatif/Desktop/models/gdm_models_2_0_0/p1rhs7_1247.json&quot;</span><span class="p">)</span>
+<span class="n">catalog</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:502: UserWarning: Ellipsis is not a Python type (it may be an instance of an object), Pydantic will allow any object with no validation since we cannot even enforce that the input is an instance of the given type. To get rid of this error wrap the type with `pydantic.SkipValidation`.
+  warn(
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">System                          </span>
+┏━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃<span style="font-weight: bold"> Property             </span>┃<span style="font-weight: bold"> Value </span>┃
+┡━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ System name          │       │
+│ Data format version  │ 2.0.0 │
+│ Components attached  │ 13370 │
+│ Time Series attached │     0 │
+│ Description          │       │
+└──────────────────────┴───────┘
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">Component Information                       </span>
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃<span style="font-weight: bold"> Type                             </span>┃<span style="font-weight: bold"> Count </span>┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ DistributionBus                  │  2510 │
+│ DistributionLoad                 │  1896 │
+│ DistributionTransformer          │   503 │
+│ DistributionTransformerEquipment │    10 │
+│ DistributionVoltageSource        │     1 │
+│ LoadEquipment                    │  1896 │
+│ Location                         │  2510 │
+│ MatrixImpedanceBranch            │  1841 │
+│ MatrixImpedanceBranchEquipment   │    38 │
+│ MatrixImpedanceFuse              │    81 │
+│ MatrixImpedanceFuseEquipment     │     6 │
+│ MatrixImpedanceSwitch            │    84 │
+│ MatrixImpedanceSwitchEquipment   │    15 │
+│ PhaseLoadEquipment               │  1948 │
+│ PhaseVoltageSourceEquipment      │     3 │
+│ TimeCurrentCurve                 │     1 │
+│ VoltageLimitSet                  │     8 │
+│ VoltageSourceEquipment           │     1 │
+│ WindingEquipment                 │    18 │
+└──────────────────────────────────┴───────┘
+</pre>
+</div></div>
+</div>
+<p>SHIFT builds synthetic distribution models in the GDM format. These can then be converted to OpenDSS using DiTTo is needed. Models can be built from a polygon of interest, an address or from single line diagrams. The Example below builds a gdm models for a given address.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">shift_interface</span><span class="w"> </span><span class="kn">import</span> <span class="n">shift_model_builder</span><span class="p">,</span> <span class="n">SourceSelection</span>
+
+<span class="n">synthetic_distribution_system</span> <span class="o">=</span> <span class="n">shift_model_builder</span><span class="p">(</span>
+    <span class="n">parcel_source</span><span class="o">=</span><span class="s2">&quot;16550 Race Street, Thornton, CO, 80602&quot;</span><span class="p">,</span>
+    <span class="n">catalog_sys</span> <span class="o">=</span> <span class="n">catalog</span><span class="p">,</span>
+    <span class="n">radius_in_meters</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">homes_per_distribution_secondary</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">source_placement</span><span class="o">=</span><span class="n">SourceSelection</span><span class="o">.</span><span class="n">CENTER</span><span class="p">,</span>
+    <span class="n">is_single_phase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">primary_voltage_level_in_kilovolts</span><span class="o">=</span><span class="mf">7.2</span><span class="p">,</span>
+    <span class="n">secondary_voltage_level_in_kilovolts</span><span class="o">=</span><span class="mf">0.12</span><span class="p">,</span>
+    <span class="n">gdm_model_name</span><span class="o">=</span><span class="s2">&quot;gdm_model&quot;</span> 
+<span class="p">)</span>
+<span class="n">synthetic_distribution_system</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">2025-05-01 18:28:28.820</span> | <span class=" -Color -Color-Bold">INFO    </span> | <span class=" -Color -Color-Cyan">shift.parcel</span>:<span class=" -Color -Color-Cyan">parcels_from_location</span>:<span class=" -Color -Color-Cyan">148</span> - <span class=" -Color -Color-Bold">Attempting to fetch parcels for 16550 Race Street, Thornton, CO, 80602</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">2025-05-01 18:28:28.891</span> | <span class=" -Color -Color-Bold">INFO    </span> | <span class=" -Color -Color-Cyan">shift.parcel</span>:<span class=" -Color -Color-Cyan">parcels_from_geodataframe</span>:<span class=" -Color -Color-Cyan">24</span> - <span class=" -Color -Color-Bold">Length of geodataframe: 66, CRS: epsg:4326</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">2025-05-01 18:28:28.893</span> | <span class=" -Color -Color-Bold">INFO    </span> | <span class=" -Color -Color-Cyan">shift.parcel</span>:<span class=" -Color -Color-Cyan">parcels_from_geodataframe</span>:<span class=" -Color -Color-Cyan">95</span> - <span class=" -Color -Color-Bold">Number of parcels: 66</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">2025-05-01 18:28:28.894</span> | <span class=" -Color -Color-Bold">INFO    </span> | <span class=" -Color -Color-Cyan">shift_interface</span>:<span class=" -Color -Color-Cyan">shift_model_builder</span>:<span class=" -Color -Color-Cyan">182</span> - <span class=" -Color -Color-Bold">Found 66 parcels</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">2025-05-01 18:28:28.927</span> | <span class=" -Color -Color-Bold">INFO    </span> | <span class=" -Color -Color-Cyan">shift_interface</span>:<span class=" -Color -Color-Cyan">shift_model_builder</span>:<span class=" -Color -Color-Cyan">185</span> - <span class=" -Color -Color-Bold">Created 16 clusters</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">2025-05-01 18:28:28.928</span> | <span class=" -Color -Color-Bold">INFO    </span> | <span class=" -Color -Color-Cyan">shift_interface</span>:<span class=" -Color -Color-Cyan">shift_model_builder</span>:<span class=" -Color -Color-Cyan">190</span> - <span class=" -Color -Color-Bold">Source location: GeoLocation(longitude=-104.96594396888045, latitude=39.993612395066414)</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">2025-05-01 18:28:28.931</span> | <span class=" -Color -Color-Bold -Color-Bold-Blue">DEBUG   </span> | <span class=" -Color -Color-Cyan">shift.openstreet_roads</span>:<span class=" -Color -Color-Cyan">get_road_network</span>:<span class=" -Color -Color-Cyan">43</span> - <span class=" -Color -Color-Bold -Color-Bold-Blue">Attempting to fecth road network for POLYGON ((-104.97554935483134 39.986908245168664, -104.95663284516866 39.986908245168664, -104.95663284516866 40.001680354831336, -104.97554935483134 40.001680354831336, -104.97554935483134 39.986908245168664))</span>
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">shift_interface</span><span class="w"> </span><span class="kn">import</span> <span class="n">shift_model_builder</span><span class="p">,</span> <span class="n">SourceSelection</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">synthetic_distribution_system</span> <span class="o">=</span> <span class="n">shift_model_builder</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">parcel_source</span><span class="o">=</span><span class="s2">&quot;16550 Race Street, Thornton, CO, 80602&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">catalog_sys</span> <span class="o">=</span> <span class="n">catalog</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">radius_in_meters</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">homes_per_distribution_secondary</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">source_placement</span><span class="o">=</span><span class="n">SourceSelection</span><span class="o">.</span><span class="n">CENTER</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">is_single_phase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">primary_voltage_level_in_kilovolts</span><span class="o">=</span><span class="mf">7.2</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">secondary_voltage_level_in_kilovolts</span><span class="o">=</span><span class="mf">0.12</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="n">gdm_model_name</span><span class="o">=</span><span class="s2">&quot;gdm_model&quot;</span> 
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">synthetic_distribution_system</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+
+<span class="nn">File ~/Desktop/Jupyter Notebooks/gdm_jupyter_book/gdm_ecosystem/shift_interface.py:192,</span> in <span class="ni">shift_model_builder</span><span class="nt">(parcel_source, catalog_sys, radius_in_meters, homes_per_distribution_secondary, source_placement, is_single_phase, primary_voltage_level_in_kilovolts, secondary_voltage_level_in_kilovolts, gdm_model_name)</span>
+<span class="g g-Whitespace">    </span><span class="mi">190</span> <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Source location: </span><span class="si">{</span><span class="n">source_location</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  
+<span class="g g-Whitespace">    </span><span class="mi">191</span> <span class="n">builder</span> <span class="o">=</span> <span class="n">PRSG</span><span class="p">(</span><span class="n">groups</span><span class="o">=</span><span class="n">clusters</span><span class="p">,</span> <span class="n">source_location</span><span class="o">=</span><span class="n">source_location</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">192</span> <span class="n">graph</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">get_distribution_graph</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">193</span> <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created graph with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">get_nodes</span><span class="p">()))</span><span class="si">}</span><span class="s2"> nodes and </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">get_edges</span><span class="p">()))</span><span class="si">}</span><span class="s2"> edges&quot;</span><span class="p">)</span>  
+<span class="g g-Whitespace">    </span><span class="mi">194</span> <span class="n">new_graph</span> <span class="o">=</span> <span class="n">DistributionGraph</span><span class="p">()</span>
+
+<span class="nn">File ~/Documents/GitHub/shift/src/shift/graph/openstreet_graph_builder.py:298,</span> in <span class="ni">OpenStreetGraphBuilder.get_distribution_graph</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">291</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_distribution_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DistributionGraph</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">292</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Method to return distribution graph.</span>
+<span class="g g-Whitespace">    </span><span class="mi">293</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">294</span><span class="sd">     Returns</span>
+<span class="g g-Whitespace">    </span><span class="mi">295</span><span class="sd">     -------</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span><span class="sd">     DistributionGraph</span>
+<span class="g g-Whitespace">    </span><span class="mi">297</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">298</span>     <span class="n">dist_network</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">build_primary_network</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">dist_network</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span>         <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Empty primary graph created.&quot;</span>
+
+<span class="nn">File ~/Documents/GitHub/shift/src/shift/graph/prsgb.py:100,</span> in <span class="ni">PRSG.build_primary_network</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span> <span class="n">road_network</span> <span class="o">=</span> <span class="n">split_network_edges</span><span class="p">(</span><span class="n">road_network_</span><span class="p">,</span> <span class="n">split_length</span><span class="o">=</span><span class="n">Distance</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span> <span class="n">nearest_nodes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_nearest_nodes</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>     <span class="n">road_network</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">center</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">groups</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">source_location</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">100</span> <span class="n">primary_network</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_steiner_tree</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="n">road_network</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="n">nearest_nodes</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span> <span class="k">return</span> <span class="n">primary_network</span>
+
+<span class="nn">File ~/Documents/GitHub/shift/src/shift/graph/openstreet_graph_builder.py:136,</span> in <span class="ni">OpenStreetGraphBuilder._get_steiner_tree</span><span class="nt">(graph, nearest_nodes)</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Returns steineer tree from a given graph and nearest nodes.</span>
+<span class="g g-Whitespace">    </span><span class="mi">122</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span><span class="sd"> Parameters</span>
+<span class="sd">   (...)    133 nx.Graph</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span> <span class="n">nx</span><span class="o">.</span><span class="n">set_edge_attributes</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">136</span> <span class="k">return</span> <span class="n">ax</span><span class="o">.</span><span class="n">steiner_tree</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">137</span>     <span class="n">graph</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">138</span>     <span class="n">nearest_nodes</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">139</span>     <span class="n">method</span><span class="o">=</span><span class="s2">&quot;mehlhorn&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">140</span> <span class="p">)</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages/networkx/utils/decorators.py:845,</span> in <span class="ni">argmap.__call__.&lt;locals&gt;.func</span><span class="nt">(_argmap__wrapper, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">844</span> <span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">__wrapper</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">845</span>     <span class="k">return</span> <span class="n">argmap</span><span class="o">.</span><span class="n">_lazy_compile</span><span class="p">(</span><span class="n">__wrapper</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: steiner_tree() got an unexpected keyword argument &#39;method&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./gdm_ecosystem"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ditto.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">DiTTo</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="erad.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ERAD</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Aadil Latif
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
