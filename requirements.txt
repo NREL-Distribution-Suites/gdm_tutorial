@@ -1,3 +1,8 @@
 jupyter-book
 matplotlib
 numpy
+grid-data-models
+gdmloader
+nrel-ditto
+nrel-shift
+nrel-erad

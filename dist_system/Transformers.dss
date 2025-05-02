@@ -1,9 +1,0 @@
-new XfmrCode.75be2047-15a6-486b-89b4-1b49c4605b6f Phases=3 Windings=2 Conns=(delta, wye) kVs=[12.47, 0.48] kVAs=[75.0, 75.0] Taps=[1.0, 1.0] %Rs=[0.87204, 0.87204] %LoadLoss=1.74408 %NoLoadLoss=0.6 X12=3.24 X23=3.24 Wdg=1 MaxTap=1.1 MinTap=0.9 NumTaps=32 Wdg=2 MaxTap=1.1 MinTap=0.9 NumTaps=32
-new Transformer.tr(r:p5rdt149-p5rdt149lv) Phases=3 Windings=2 Buses=(p5rdt149.1.2.3, p5rdt149lv.1.2.3) XfmrCode=75be2047-15a6-486b-89b4-1b49c4605b6f
-new Transformer.tr(r:p5rdt22-p5rdt22lv) Phases=3 Windings=2 Buses=(p5rdt22.1.2.3, p5rdt22lv.1.2.3) XfmrCode=75be2047-15a6-486b-89b4-1b49c4605b6f
-new XfmrCode.75be2047-15a6-486b-89b4-1b49c4605b6f Phases=3 Windings=2 Conns=(delta, wye) kVs=[12.47, 0.48] kVAs=[75.0, 75.0] Taps=[1.0, 1.0] %Rs=[0.87204, 0.87204] %LoadLoss=1.74408 %NoLoadLoss=0.6 X12=3.24 X23=3.24 Wdg=1 MaxTap=1.1 MinTap=0.9 NumTaps=32 Wdg=2 MaxTap=1.1 MinTap=0.9 NumTaps=32
-new Transformer.tr(r:p5rdt149-p5rdt149lv) Phases=3 Windings=2 Buses=(p5rdt149.1.2.3, p5rdt149lv.1.2.3) XfmrCode=75be2047-15a6-486b-89b4-1b49c4605b6f
-new Transformer.tr(r:p5rdt22-p5rdt22lv) Phases=3 Windings=2 Buses=(p5rdt22.1.2.3, p5rdt22lv.1.2.3) XfmrCode=75be2047-15a6-486b-89b4-1b49c4605b6f
-new XfmrCode.75be2047-15a6-486b-89b4-1b49c4605b6f Phases=3 Windings=2 Conns=(delta, wye) kVs=[12.47, 0.48] kVAs=[75.0, 75.0] Taps=[1.0, 1.0] %Rs=[0.87204, 0.87204] %LoadLoss=1.74408 %NoLoadLoss=0.6 X12=3.24 X23=3.24 Wdg=1 MaxTap=1.1 MinTap=0.9 NumTaps=32 Wdg=2 MaxTap=1.1 MinTap=0.9 NumTaps=32
-new Transformer.tr(r:p5rdt149-p5rdt149lv) Phases=3 Windings=2 Buses=(p5rdt149.1.2.3, p5rdt149lv.1.2.3) XfmrCode=75be2047-15a6-486b-89b4-1b49c4605b6f
-new Transformer.tr(r:p5rdt22-p5rdt22lv) Phases=3 Windings=2 Buses=(p5rdt22.1.2.3, p5rdt22lv.1.2.3) XfmrCode=75be2047-15a6-486b-89b4-1b49c4605b6f
