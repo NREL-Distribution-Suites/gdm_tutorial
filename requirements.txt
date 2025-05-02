@@ -1,0 +1,9 @@
+jupyter-book
+matplotlib
+numpy
+ghp-import
+nrel-shift
+nrel-ditto
+git+https://github.com/NREL/erad.git@al/erad_v1
+gdmloader
+
