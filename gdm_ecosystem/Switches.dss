@@ -1,0 +1,2 @@
+new Line.l(r:p5rdt149-p5rhs0_1247)_disconnect Switch=True Bus1=p5rdt149-p5rhs0_1247x_b1_1.1.2.3 Bus2=p5rdt149-p5rhs0_1247x_b2_1.1.2.3 LineCode=3bc11bb4-39a8-45ff-aab0-62f1d974ee0b Length=0.001 Phases=3 Units=m
+new Line.l(r:p5rdt149-p5rhs0_1247)_disconnect Switch=True Bus1=p5rdt149-p5rhs0_1247x_b1_1.1.2.3 Bus2=p5rdt149-p5rhs0_1247x_b2_1.1.2.3 LineCode=3bc11bb4-39a8-45ff-aab0-62f1d974ee0b Length=0.001 Phases=3 Units=m

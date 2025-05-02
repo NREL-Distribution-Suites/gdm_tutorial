@@ -1,0 +1,12 @@
+new Line.l(r:p5rdt149-p5rhs0_1247) Bus1=p5rdt149-p5rhs0_1247x.1.2.3 Bus2=p5rdt149-p5rhs0_1247x_b1_1.1.2.3 LineCode=3p_oh_al_acsr_4/0_penguin_3 Length=0.561451 Phases=3 Units=km
+new Line.l(r:p5rdt149lv-p5rlv265) Bus1=p5rdt149lv.1.2.3 Bus2=p5rlv265.1.2.3 LineCode=3p_ug_al_3 Length=0.001 Phases=3 Units=km
+new Line.l(r:p5rdt22lv-p5rlv40) Bus1=p5rdt22lv.1.2.3 Bus2=p5rlv40.1.2.3 LineCode=3p_ug_al_3 Length=0.004450080000000001 Phases=3 Units=km
+new Line.l(r:p5rdt149-p5rdt22)_s0 Bus1=p5rdt149.1.2.3 Bus2=p5rdt149-p5rdt22x.1.2.3 LineCode=3p_oh_al_acsr_4/0_penguin_3 Length=0.829829 Phases=3 Units=km
+new Line.l(r:p5rdt149-p5rdt22)_s1 Bus1=p5rdt149-p5rdt22x.1.2.3 Bus2=p5rdt22.1.2.3 LineCode=3p_oh_al_acsr_4/0_penguin_3 Length=1.87473 Phases=3 Units=km
+new Line.l(r:p5rdt149-p5rhs0_1247)_cont Bus1=p5rdt149-p5rhs0_1247x_b2_1.1.2.3 Bus2=p5rdt149.1.2.3 LineCode=3p_oh_al_acsr_4/0_penguin_3 Length=5.0620590000000005 Phases=3 Units=km
+new Line.l(r:p5rdt149-p5rhs0_1247) Bus1=p5rdt149-p5rhs0_1247x.1.2.3 Bus2=p5rdt149-p5rhs0_1247x_b1_1.1.2.3 LineCode=3p_oh_al_acsr_4/0_penguin_3 Length=0.561451 Phases=3 Units=km
+new Line.l(r:p5rdt149lv-p5rlv265) Bus1=p5rdt149lv.1.2.3 Bus2=p5rlv265.1.2.3 LineCode=3p_ug_al_3 Length=0.001 Phases=3 Units=km
+new Line.l(r:p5rdt22lv-p5rlv40) Bus1=p5rdt22lv.1.2.3 Bus2=p5rlv40.1.2.3 LineCode=3p_ug_al_3 Length=0.004450080000000001 Phases=3 Units=km
+new Line.l(r:p5rdt149-p5rdt22)_s0 Bus1=p5rdt149.1.2.3 Bus2=p5rdt149-p5rdt22x.1.2.3 LineCode=3p_oh_al_acsr_4/0_penguin_3 Length=0.829829 Phases=3 Units=km
+new Line.l(r:p5rdt149-p5rdt22)_s1 Bus1=p5rdt149-p5rdt22x.1.2.3 Bus2=p5rdt22.1.2.3 LineCode=3p_oh_al_acsr_4/0_penguin_3 Length=1.87473 Phases=3 Units=km
+new Line.l(r:p5rdt149-p5rhs0_1247)_cont Bus1=p5rdt149-p5rhs0_1247x_b2_1.1.2.3 Bus2=p5rdt149.1.2.3 LineCode=3p_oh_al_acsr_4/0_penguin_3 Length=5.0620590000000005 Phases=3 Units=km

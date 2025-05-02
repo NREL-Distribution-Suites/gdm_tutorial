@@ -1,0 +1,4 @@
+new Load.load_p5rlv40 Phases=3 Bus1=p5rlv40.1.2.3 kV=0.47998591979348726 kW=5.133773823597883 Model=8 Conn=wye kvar=1.1902933256444066 ZIPV=[0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0]
+new Load.load_p5rlv265 Phases=3 Bus1=p5rlv265.1.2.3 kV=0.47998591979348726 kW=4.218355339458662 Model=8 Conn=wye kvar=1.0973386578430595 ZIPV=[0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0]
+new Load.load_p5rlv40 Phases=3 Bus1=p5rlv40.1.2.3 kV=0.47998591979348726 kW=5.133773823597883 Model=8 Conn=wye kvar=1.1902933256444066 ZIPV=[0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0]
+new Load.load_p5rlv265 Phases=3 Bus1=p5rlv265.1.2.3 kV=0.47998591979348726 kW=4.218355339458662 Model=8 Conn=wye kvar=1.0973386578430595 ZIPV=[0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0]
