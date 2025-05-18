@@ -1,0 +1,130 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.12.10/x64/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.12.10/x64/lib/python3.12/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.10/x64/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.10/x64/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.10/x64/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.12.10/x64/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.12.10/x64/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+
+from ditto.readers.opendss.reader import Reader
+from opendssdirect import dss
+
+dss("""
+    clear
+    new Circuit.test bus1=bus_1.1 BasekV=7.2 pu=1.03 Angle=0.0 Phases=1 Z1=[1e-05, 1e-05] Z0=[1e-05, 1e-05]
+    new line.line_1  bus1=bus_1.1 bus2=bus_2.2 phases=1
+    solve
+""")
+dss.Circuit.Save("test_circuit", options=0)
+
+reader = Reader("test_circuit/Master.dss")
+gdm_system = reader.get_system()
+
+------------------
+
+----- stderr -----
+[32m2025-05-18 14:58:16.040[0m | [34m[1mDEBUG   [0m | [36mditto.readers.opendss.reader[0m:[36m_read[0m:[36m61[0m - [34m[1mLoading OpenDSS model.[0m
+----- stderr -----
+[32m2025-05-18 14:58:16.046[0m | [34m[1mDEBUG   [0m | [36mditto.readers.opendss.reader[0m:[36m_read[0m:[36m70[0m - [34m[1mModel loaded from test_circuit/Master.dss.[0m
+----- stderr -----
+[32m2025-05-18 14:58:16.046[0m | [34m[1mDEBUG   [0m | [36mditto.readers.opendss.components.buses[0m:[36mget_buses[0m:[36m22[0m - [34m[1mparsing bus components...[0m
+----- stderr -----
+[32m2025-05-18 14:58:16.049[0m | [34m[1mDEBUG   [0m | [36mditto.readers.opendss.components.sources[0m:[36mget_voltage_sources[0m:[36m90[0m - [34m[1mparsing voltage sources components...[0m
+----- stderr -----
+[32m2025-05-18 14:58:16.050[0m | [34m[1mDEBUG   [0m | [36mditto.readers.opendss.components.loadshapes[0m:[36mbuild_profiles[0m:[36m103[0m - [34m[1mparsing timeseries components...[0m
+----- stderr -----
+[32m2025-05-18 14:58:16.051[0m | [34m[1mDEBUG   [0m | [36mditto.readers.opendss.components.capacitors[0m:[36mget_capacitors[0m:[36m89[0m - [34m[1mparsing capacitor components...[0m
+----- stderr -----
+[32m2025-05-18 14:58:16.051[0m | [34m[1mDEBUG   [0m | [36mditto.readers.opendss.components.loads[0m:[36mget_loads[0m:[36m95[0m - [34m[1mparsing load components...[0m
+----- stderr -----
+[32m2025-05-18 14:58:16.052[0m | [34m[1mDEBUG   [0m | [36mditto.readers.opendss.components.pv_systems[0m:[36mget_pvsystems[0m:[36m83[0m - [34m[1mparsing pvsystem components...[0m
+----- stderr -----
+[32m2025-05-18 14:58:16.052[0m | [34m[1mDEBUG   [0m | [36mditto.readers.opendss.components.transformers[0m:[36mget_transformer_equipments[0m:[36m149[0m - [34m[1mparsing transformer equipment...[0m
+----- stderr -----
+[32m2025-05-18 14:58:16.053[0m | [34m[1mDEBUG   [0m | [36mditto.readers.opendss.components.transformers[0m:[36mget_transformers[0m:[36m182[0m - [34m[1mparsing transformer components...[0m
+----- stderr -----
+[32m2025-05-18 14:58:16.053[0m | [34m[1mDEBUG   [0m | [36mditto.readers.opendss.components.conductors[0m:[36mget_conductors_equipment[0m:[36m16[0m - [34m[1mparsing conductor components...[0m
+----- stderr -----
+[32m2025-05-18 14:58:16.054[0m | [34m[1mDEBUG   [0m | [36mditto.readers.opendss.components.cables[0m:[36mget_cables_equipment[0m:[36m22[0m - [34m[1mparsing cable components...[0m
+----- stderr -----
+[32m2025-05-18 14:58:16.054[0m | [34m[1mDEBUG   [0m | [36mditto.readers.opendss.components.branches[0m:[36mget_matrix_branch_equipments[0m:[36m195[0m - [34m[1mparsing matrix branch equipment...[0m
+----- stderr -----
+[32m2025-05-18 14:58:16.059[0m | [34m[1mDEBUG   [0m | [36mditto.readers.opendss.components.branches[0m:[36mget_geometry_branch_equipments[0m:[36m67[0m - [34m[1mparsing geometry branch equipment...[0m
+----- stderr -----
+[32m2025-05-18 14:58:16.060[0m | [34m[1mDEBUG   [0m | [36mditto.readers.opendss.components.branches[0m:[36mget_branches[0m:[36m263[0m - [34m[1mparsing branch components...[0m
+----- stderr -----
+[32m2025-05-18 14:58:16.062[0m | [34m[1mDEBUG   [0m | [36mditto.readers.opendss.components.branches[0m:[36mget_branches[0m:[36m269[0m - [34m[1mbuilding line Line.line_1...[0m
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mValidationError[39m                           Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[4][39m[32m, line 12[39m
+[32m      4[39m dss([33m"""[39m
+[32m      5[39m [33m    clear[39m
+[32m      6[39m [33m    new Circuit.test bus1=bus_1.1 BasekV=7.2 pu=1.03 Angle=0.0 Phases=1 Z1=[1e-05, 1e-05] Z0=[1e-05, 1e-05][39m
+[32m      7[39m [33m    new line.line_1  bus1=bus_1.1 bus2=bus_2.2 phases=1[39m
+[32m      8[39m [33m    solve[39m
+[32m      9[39m [33m"""[39m)
+[32m     10[39m dss.Circuit.Save([33m"[39m[33mtest_circuit[39m[33m"[39m, options=[32m0[39m)
+[32m---> [39m[32m12[39m reader = [43mReader[49m[43m([49m[33;43m"[39;49m[33;43mtest_circuit/Master.dss[39;49m[33;43m"[39;49m[43m)[49m
+[32m     13[39m gdm_system = reader.get_system()
+
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.12.10/x64/lib/python3.12/site-packages/ditto/readers/opendss/reader.py:47[39m, in [36mReader.__init__[39m[34m(self, Opendss_master_file, crs)[39m
+[32m     45[39m [38;5;28mself[39m.Opendss_master_file = Path(Opendss_master_file)
+[32m     46[39m [38;5;28mself[39m.crs = crs
+[32m---> [39m[32m47[39m [38;5;28;43mself[39;49m[43m.[49m[43m_read[49m[43m([49m[43m)[49m
+
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.12.10/x64/lib/python3.12/site-packages/ditto/readers/opendss/reader.py:99[39m, in [36mReader._read[39m[34m(self)[39m
+[32m     95[39m geometry_branch_equipment_catalog, mapped_geometry = get_geometry_branch_equipments(
+[32m     96[39m     [38;5;28mself[39m.system
+[32m     97[39m )
+[32m     98[39m [38;5;28mself[39m._add_components(geometry_branch_equipment_catalog.values())
+[32m---> [39m[32m99[39m branches = [43mget_branches[49m[43m([49m
+[32m    100[39m [43m    [49m[38;5;28;43mself[39;49m[43m.[49m[43msystem[49m[43m,[49m
+[32m    101[39m [43m    [49m[43mmapped_geometry[49m[43m,[49m
+[32m    102[39m [43m    [49m[43mgeometry_branch_equipment_catalog[49m[43m,[49m
+[32m    103[39m [43m    [49m[43mmatrix_branch_equipments_catalog[49m[43m,[49m
+[32m    104[39m [43m    [49m[43mthermal_limit_catalog[49m[43m,[49m
+[32m    105[39m [43m[49m[43m)[49m
+[32m    106[39m [38;5;28mself[39m._add_components(branches)
+[32m    108[39m logger.debug([33m"[39m[33mparsing complete...[39m[33m"[39m)
+
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.12.10/x64/lib/python3.12/site-packages/ditto/readers/opendss/components/branches.py:344[39m, in [36mget_branches[39m[34m(system, mapping, geometry_branch_equipment_catalog, matrix_branch_equipments_catalog, thermal_limit_catalog)[39m
+[32m    339[39m     [38;5;28;01mif[39;00m model_class [38;5;129;01min[39;00m [MatrixImpedanceSwitch, MatrixImpedanceFuse]:
+[32m    340[39m         model_dict[[33m"[39m[33mis_closed[39m[33m"[39m] = [
+[32m    341[39m             [38;5;129;01mnot[39;00m (odd.CktElement.IsOpen([32m1[39m, node + [32m1[39m) [38;5;129;01mor[39;00m odd.CktElement.IsOpen([32m2[39m, node + [32m1[39m))
+[32m    342[39m             [38;5;28;01mfor[39;00m node [38;5;129;01min[39;00m [38;5;28mrange[39m([38;5;28mlen[39m(nodes))
+[32m    343[39m         ]
+[32m--> [39m[32m344[39m     matrix_branch = [43mmodel_class[49m[43m([49m[43m*[49m[43m*[49m[43mmodel_dict[49m[43m)[49m
+[32m    345[39m     branches.append(matrix_branch)
+[32m    346[39m flag = odd.Lines.Next()
+
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.12.10/x64/lib/python3.12/site-packages/pydantic/main.py:214[39m, in [36mBaseModel.__init__[39m[34m(self, **data)[39m
+[32m    212[39m [38;5;66;03m# `__tracebackhide__` tells pytest and some other tools to omit this function from tracebacks[39;00m
+[32m    213[39m __tracebackhide__ = [38;5;28;01mTrue[39;00m
+[32m--> [39m[32m214[39m validated_self = [38;5;28;43mself[39;49m[43m.[49m[43m__pydantic_validator__[49m[43m.[49m[43mvalidate_python[49m[43m([49m[43mdata[49m[43m,[49m[43m [49m[43mself_instance[49m[43m=[49m[38;5;28;43mself[39;49m[43m)[49m
+[32m    215[39m [38;5;28;01mif[39;00m [38;5;28mself[39m [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m validated_self:
+[32m    216[39m     warnings.warn(
+[32m    217[39m         [33m'[39m[33mA custom validator is returning a value other than `self`.[39m[38;5;130;01m\n[39;00m[33m'[39m
+[32m    218[39m         [33m"[39m[33mReturning anything other than `self` from a top level model validator isn[39m[33m'[39m[33mt supported when validating via `__init__`.[39m[38;5;130;01m\n[39;00m[33m"[39m
+[32m    219[39m         [33m'[39m[33mSee the `model_validator` docs (https://docs.pydantic.dev/latest/concepts/validators/#model-validators) for more details.[39m[33m'[39m,
+[32m    220[39m         stacklevel=[32m2[39m,
+[32m    221[39m     )
+
+[31mValidationError[39m: 1 validation error for MatrixImpedanceBranch
+  Value error, Conductor phase (phase=<Phase.A: 'A'>) does not match bus phases (bus.phases=[<Phase.B: 'B'>]) [type=value_error, input_value={'name': 'line_1', 'buses...tity(400.0, 'ampere')>)}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/value_error
+

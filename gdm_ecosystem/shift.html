@@ -1,0 +1,683 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SHIFT &#8212; Grid-Data-Models</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gdm_ecosystem/shift';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ERAD" href="erad.html" />
+    <link rel="prev" title="DiTTo" href="ditto.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/gdm_logo.jpeg" class="logo__image only-light" alt="Grid-Data-Models - Home"/>
+    <script>document.write(`<img src="../_static/gdm_logo.jpeg" class="logo__image only-dark" alt="Grid-Data-Models - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to the Grid-Data-Models (GDM) Tutorial
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installing Dependencies</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Intro to GDM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gdm_intro/gdm_intro.html">Development Background</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../gdm_intro/data_models.html">GDM Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gdm_intro/units.html">Managing Physical Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gdm_intro/timeseries.html">Managing Time-Series Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">GDM Loader</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gdmloader/gdmloader.html">Working with GDMLOADER</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">DistributionSystem</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../dist_system/import_export.html">Importing and Exporting Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dist_system/plotting.html">Plotting GDM Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dist_system/graphs.html">System Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dist_system/network_reduction.html">Network Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dist_system/tracked_changes.html">Tracking Changes in GDM</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">The GDM Ecosystem</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ditto.html">DiTTo</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">SHIFT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erad.html">ERAD</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgdm_ecosystem/shift.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/gdm_ecosystem/shift.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>SHIFT</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="shift">
+<h1>SHIFT<a class="headerlink" href="#shift" title="Link to this heading">#</a></h1>
+<p>Python package for creating synthetic power distribution model. This package uses Grid Data Models to represent power distribution components and Ditto for writing case files specific to simulators such as OpenDSS, Cyme, Synergi and others.</p>
+<p>Currently, SHIFT uses open street parcel information and road networks to build the distribution model.</p>
+<p>For model conversion. We will need to install DiTTo. To do that, use the command below</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">nrel</span><span class="o">-</span><span class="n">shift</span> <span class="o">--</span><span class="n">upgrade</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">networkx</span><span class="o">~=</span><span class="mf">3.0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="n">pip</span> <span class="n">install</span> <span class="n">nrel</span><span class="o">-</span><span class="n">shift</span> <span class="o">--</span><span class="n">upgrade</span>
+        <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>We start by loading a sample GDM system using the gdmloader.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">gdm.distribution</span><span class="w"> </span><span class="kn">import</span> <span class="n">DistributionSystem</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gdmloader.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">GCS_CASE_SOURCE</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gdmloader.source</span><span class="w"> </span><span class="kn">import</span> <span class="n">SystemLoader</span>
+
+<span class="n">gdm_loader</span> <span class="o">=</span> <span class="n">SystemLoader</span><span class="p">()</span>
+<span class="n">gdm_loader</span><span class="o">.</span><span class="n">add_source</span><span class="p">(</span><span class="n">GCS_CASE_SOURCE</span><span class="p">)</span>
+
+<span class="n">catalog</span><span class="p">:</span> <span class="n">DistributionSystem</span> <span class="o">=</span> <span class="n">gdm_loader</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span>
+    <span class="n">source_name</span><span class="o">=</span><span class="n">GCS_CASE_SOURCE</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> 
+    <span class="n">system_type</span><span class="o">=</span><span class="n">DistributionSystem</span><span class="p">,</span> 
+    <span class="n">dataset_name</span><span class="o">=</span><span class="s2">&quot;p1rhs7_1247&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">catalog</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;p1rhs7_1247&quot;</span>
+<span class="n">catalog</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/homebrew/Caskroom/miniconda/base/envs/gdm2/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:502: UserWarning: Ellipsis is not a Python type (it may be an instance of an object), Pydantic will allow any object with no validation since we cannot even enforce that the input is an instance of the given type. To get rid of this error wrap the type with `pydantic.SkipValidation`.
+  warn(
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">System                                </span>
+┏━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> Property             </span>┃<span style="font-weight: bold">       Value </span>┃
+┡━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+│ System name          │ p1rhs7_1247 │
+│ Data format version  │       2.0.1 │
+│ Components attached  │       13370 │
+│ Time Series attached │           0 │
+│ Description          │             │
+└──────────────────────┴─────────────┘
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">Component Information                       </span>
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃<span style="font-weight: bold"> Type                             </span>┃<span style="font-weight: bold"> Count </span>┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ DistributionBus                  │  2510 │
+│ DistributionLoad                 │  1896 │
+│ DistributionTransformer          │   503 │
+│ DistributionTransformerEquipment │    10 │
+│ DistributionVoltageSource        │     1 │
+│ LoadEquipment                    │  1896 │
+│ Location                         │  2510 │
+│ MatrixImpedanceBranch            │  1841 │
+│ MatrixImpedanceBranchEquipment   │    38 │
+│ MatrixImpedanceFuse              │    81 │
+│ MatrixImpedanceFuseEquipment     │     6 │
+│ MatrixImpedanceSwitch            │    84 │
+│ MatrixImpedanceSwitchEquipment   │    15 │
+│ PhaseLoadEquipment               │  1948 │
+│ PhaseVoltageSourceEquipment      │     3 │
+│ TimeCurrentCurve                 │     1 │
+│ VoltageLimitSet                  │     8 │
+│ VoltageSourceEquipment           │     1 │
+│ WindingEquipment                 │    18 │
+└──────────────────────────────────┴───────┘
+</pre>
+</div></div>
+</div>
+<p>SHIFT builds synthetic distribution models in the GDM format. These can then be converted to OpenDSS using DiTTo as needed. Models can be built from a polygon of interest, an address or from single line diagrams. The example below builds a gdm models for a given address.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">shift_interface</span><span class="w"> </span><span class="kn">import</span> <span class="n">shift_model_builder</span><span class="p">,</span> <span class="n">SourceSelection</span>
+
+<span class="n">synthetic_distribution_system</span> <span class="o">=</span> <span class="n">shift_model_builder</span><span class="p">(</span>
+    <span class="n">parcel_source</span><span class="o">=</span><span class="s2">&quot;16550 Race Street, Thornton, CO, 80602&quot;</span><span class="p">,</span>
+    <span class="n">catalog_sys</span> <span class="o">=</span> <span class="n">catalog</span><span class="p">,</span>
+    <span class="n">radius_in_meters</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">homes_per_distribution_secondary</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">source_placement</span><span class="o">=</span><span class="n">SourceSelection</span><span class="o">.</span><span class="n">CENTER</span><span class="p">,</span>
+    <span class="n">is_single_phase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">primary_voltage_level_in_kilovolts</span><span class="o">=</span><span class="mf">7.2</span><span class="p">,</span>
+    <span class="n">secondary_voltage_level_in_kilovolts</span><span class="o">=</span><span class="mf">0.12</span><span class="p">,</span>
+    <span class="n">gdm_model_name</span><span class="o">=</span><span class="s2">&quot;gdm_model&quot;</span> 
+<span class="p">)</span>
+<span class="n">synthetic_distribution_system</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">2025-05-14 20:30:59.646</span> | <span class=" -Color -Color-Bold">INFO    </span> | <span class=" -Color -Color-Cyan">shift.parcel</span>:<span class=" -Color -Color-Cyan">parcels_from_location</span>:<span class=" -Color -Color-Cyan">148</span> - <span class=" -Color -Color-Bold">Attempting to fetch parcels for 16550 Race Street, Thornton, CO, 80602</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.707</span> | <span class=" -Color -Color-Bold">INFO    </span> | <span class=" -Color -Color-Cyan">shift.parcel</span>:<span class=" -Color -Color-Cyan">parcels_from_geodataframe</span>:<span class=" -Color -Color-Cyan">24</span> - <span class=" -Color -Color-Bold">Length of geodataframe: 66, CRS: epsg:4326</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.709</span> | <span class=" -Color -Color-Bold">INFO    </span> | <span class=" -Color -Color-Cyan">shift.parcel</span>:<span class=" -Color -Color-Cyan">parcels_from_geodataframe</span>:<span class=" -Color -Color-Cyan">95</span> - <span class=" -Color -Color-Bold">Number of parcels: 66</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.710</span> | <span class=" -Color -Color-Bold">INFO    </span> | <span class=" -Color -Color-Cyan">shift_interface</span>:<span class=" -Color -Color-Cyan">shift_model_builder</span>:<span class=" -Color -Color-Cyan">183</span> - <span class=" -Color -Color-Bold">Found 66 parcels</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.739</span> | <span class=" -Color -Color-Bold">INFO    </span> | <span class=" -Color -Color-Cyan">shift_interface</span>:<span class=" -Color -Color-Cyan">shift_model_builder</span>:<span class=" -Color -Color-Cyan">186</span> - <span class=" -Color -Color-Bold">Created 16 clusters</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.740</span> | <span class=" -Color -Color-Bold">INFO    </span> | <span class=" -Color -Color-Cyan">shift_interface</span>:<span class=" -Color -Color-Cyan">shift_model_builder</span>:<span class=" -Color -Color-Cyan">191</span> - <span class=" -Color -Color-Bold">Source location: GeoLocation(longitude=-104.96594396888045, latitude=39.993612395066414)</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.744</span> | <span class=" -Color -Color-Bold -Color-Bold-Blue">DEBUG   </span> | <span class=" -Color -Color-Cyan">shift.openstreet_roads</span>:<span class=" -Color -Color-Cyan">get_road_network</span>:<span class=" -Color -Color-Cyan">43</span> - <span class=" -Color -Color-Bold -Color-Bold-Blue">Attempting to fecth road network for POLYGON ((-104.97554935483134 39.986908245168664, -104.95663284516866 39.986908245168664, -104.95663284516866 40.001680354831336, -104.97554935483134 40.001680354831336, -104.97554935483134 39.986908245168664))</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.974</span> | <span class=" -Color -Color-Bold -Color-Bold-Blue">DEBUG   </span> | <span class=" -Color -Color-Cyan">shift.graph.openstreet_graph_builder</span>:<span class=" -Color -Color-Cyan">get_distribution_graph</span>:<span class=" -Color -Color-Cyan">309</span> - <span class=" -Color -Color-Bold -Color-Bold-Blue">Building secondary for GeoLocation(longitude=-104.96743883333333, latitude=39.989592099999996): cd6f0177-d667-47a6-a600-08b155dbc4ec</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.976</span> | <span class=" -Color -Color-Bold -Color-Bold-Blue">DEBUG   </span> | <span class=" -Color -Color-Cyan">shift.graph.openstreet_graph_builder</span>:<span class=" -Color -Color-Cyan">get_distribution_graph</span>:<span class=" -Color -Color-Cyan">309</span> - <span class=" -Color -Color-Bold -Color-Bold-Blue">Building secondary for GeoLocation(longitude=-104.96631801111111, latitude=39.997292433333335): 6d37bc28-71f1-4a4e-ac7e-521b1364b881</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.978</span> | <span class=" -Color -Color-Bold -Color-Bold-Blue">DEBUG   </span> | <span class=" -Color -Color-Cyan">shift.graph.openstreet_graph_builder</span>:<span class=" -Color -Color-Cyan">get_distribution_graph</span>:<span class=" -Color -Color-Cyan">309</span> - <span class=" -Color -Color-Bold -Color-Bold-Blue">Building secondary for GeoLocation(longitude=-104.96120422222222, latitude=39.98817397777778): f8ec81d7-f32f-4772-91c8-ab56d89efb2f</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.981</span> | <span class=" -Color -Color-Bold -Color-Bold-Blue">DEBUG   </span> | <span class=" -Color -Color-Cyan">shift.graph.openstreet_graph_builder</span>:<span class=" -Color -Color-Cyan">get_distribution_graph</span>:<span class=" -Color -Color-Cyan">309</span> - <span class=" -Color -Color-Bold -Color-Bold-Blue">Building secondary for GeoLocation(longitude=-104.95903445, latitude=39.994927025): f375b342-5f07-4128-a95b-b1d6990a9ecb</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.982</span> | <span class=" -Color -Color-Bold -Color-Bold-Blue">DEBUG   </span> | <span class=" -Color -Color-Cyan">shift.graph.openstreet_graph_builder</span>:<span class=" -Color -Color-Cyan">get_distribution_graph</span>:<span class=" -Color -Color-Cyan">309</span> - <span class=" -Color -Color-Bold -Color-Bold-Blue">Building secondary for GeoLocation(longitude=-104.97454335, latitude=39.9944428): e409cd81-0f44-4244-9ab4-9bd597ae4544</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.983</span> | <span class=" -Color -Color-Bold -Color-Bold-Blue">DEBUG   </span> | <span class=" -Color -Color-Cyan">shift.graph.openstreet_graph_builder</span>:<span class=" -Color -Color-Cyan">get_distribution_graph</span>:<span class=" -Color -Color-Cyan">309</span> - <span class=" -Color -Color-Bold -Color-Bold-Blue">Building secondary for GeoLocation(longitude=-104.96748478571429, latitude=39.98741058571429): 0cf48a10-9b5a-413b-a330-af5aaa23d792</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.984</span> | <span class=" -Color -Color-Bold -Color-Bold-Blue">DEBUG   </span> | <span class=" -Color -Color-Cyan">shift.graph.openstreet_graph_builder</span>:<span class=" -Color -Color-Cyan">get_distribution_graph</span>:<span class=" -Color -Color-Cyan">309</span> - <span class=" -Color -Color-Bold -Color-Bold-Blue">Building secondary for GeoLocation(longitude=-104.9620206, latitude=40.0012541): 08b740ef-6964-48e0-a904-e10898aa3a37</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.985</span> | <span class=" -Color -Color-Bold -Color-Bold-Blue">DEBUG   </span> | <span class=" -Color -Color-Cyan">shift.graph.openstreet_graph_builder</span>:<span class=" -Color -Color-Cyan">get_distribution_graph</span>:<span class=" -Color -Color-Cyan">309</span> - <span class=" -Color -Color-Bold -Color-Bold-Blue">Building secondary for GeoLocation(longitude=-104.96494231428572, latitude=39.98991658571428): 4b399c23-d081-433a-8dbd-3243aef13d56</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.987</span> | <span class=" -Color -Color-Bold -Color-Bold-Blue">DEBUG   </span> | <span class=" -Color -Color-Cyan">shift.graph.openstreet_graph_builder</span>:<span class=" -Color -Color-Cyan">get_distribution_graph</span>:<span class=" -Color -Color-Cyan">309</span> - <span class=" -Color -Color-Bold -Color-Bold-Blue">Building secondary for GeoLocation(longitude=-104.9568128, latitude=39.9895988): 215acb9a-aae6-4701-ac8d-f7c6becf3804</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.988</span> | <span class=" -Color -Color-Bold -Color-Bold-Blue">DEBUG   </span> | <span class=" -Color -Color-Cyan">shift.graph.openstreet_graph_builder</span>:<span class=" -Color -Color-Cyan">get_distribution_graph</span>:<span class=" -Color -Color-Cyan">309</span> - <span class=" -Color -Color-Bold -Color-Bold-Blue">Building secondary for GeoLocation(longitude=-104.9649663, latitude=39.9871476): 14b663c2-5d66-4436-8ca9-7f559a8827b6</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.989</span> | <span class=" -Color -Color-Bold -Color-Bold-Blue">DEBUG   </span> | <span class=" -Color -Color-Cyan">shift.graph.openstreet_graph_builder</span>:<span class=" -Color -Color-Cyan">get_distribution_graph</span>:<span class=" -Color -Color-Cyan">309</span> - <span class=" -Color -Color-Bold -Color-Bold-Blue">Building secondary for GeoLocation(longitude=-104.9700745, latitude=39.9875375): 3158c2e4-a206-4b8c-98c1-f0d3fce03f84</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.990</span> | <span class=" -Color -Color-Bold -Color-Bold-Blue">DEBUG   </span> | <span class=" -Color -Color-Cyan">shift.graph.openstreet_graph_builder</span>:<span class=" -Color -Color-Cyan">get_distribution_graph</span>:<span class=" -Color -Color-Cyan">309</span> - <span class=" -Color -Color-Bold -Color-Bold-Blue">Building secondary for GeoLocation(longitude=-104.97335625, latitude=39.9968279): a0483b1b-81e6-4f91-aea2-734afcd1b640</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.991</span> | <span class=" -Color -Color-Bold -Color-Bold-Blue">DEBUG   </span> | <span class=" -Color -Color-Cyan">shift.graph.openstreet_graph_builder</span>:<span class=" -Color -Color-Cyan">get_distribution_graph</span>:<span class=" -Color -Color-Cyan">309</span> - <span class=" -Color -Color-Bold -Color-Bold-Blue">Building secondary for GeoLocation(longitude=-104.96700205833334, latitude=39.99768245833333): 26b4269d-91fa-4404-a78a-aae991faf1ee</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.993</span> | <span class=" -Color -Color-Bold -Color-Bold-Blue">DEBUG   </span> | <span class=" -Color -Color-Cyan">shift.graph.openstreet_graph_builder</span>:<span class=" -Color -Color-Cyan">get_distribution_graph</span>:<span class=" -Color -Color-Cyan">309</span> - <span class=" -Color -Color-Bold -Color-Bold-Blue">Building secondary for GeoLocation(longitude=-104.9685161, latitude=39.9887689): 99f8570b-224b-44da-9686-712e4de33ab9</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.994</span> | <span class=" -Color -Color-Bold -Color-Bold-Blue">DEBUG   </span> | <span class=" -Color -Color-Cyan">shift.graph.openstreet_graph_builder</span>:<span class=" -Color -Color-Cyan">get_distribution_graph</span>:<span class=" -Color -Color-Cyan">309</span> - <span class=" -Color -Color-Bold -Color-Bold-Blue">Building secondary for GeoLocation(longitude=-104.9716372, latitude=39.9950622): a6eed9e1-7fd2-4458-b5dc-4883e178bacf</span>
+<span class=" -Color -Color-Green">2025-05-14 20:30:59.995</span> | <span class=" -Color -Color-Bold -Color-Bold-Blue">DEBUG   </span> | <span class=" -Color -Color-Cyan">shift.graph.openstreet_graph_builder</span>:<span class=" -Color -Color-Cyan">get_distribution_graph</span>:<span class=" -Color -Color-Cyan">309</span> - <span class=" -Color -Color-Bold -Color-Bold-Blue">Building secondary for GeoLocation(longitude=-104.9643679, latitude=40.0005727): 7e1f86df-b54a-4361-9930-002896dd690b</span>
+<span class=" -Color -Color-Green">2025-05-14 20:31:00.013</span> | <span class=" -Color -Color-Bold">INFO    </span> | <span class=" -Color -Color-Cyan">shift_interface</span>:<span class=" -Color -Color-Cyan">shift_model_builder</span>:<span class=" -Color -Color-Cyan">194</span> - <span class=" -Color -Color-Bold">Created graph with 218 nodes and 217 edges</span>
+<span class=" -Color -Color-Green">2025-05-14 20:31:00.035</span> | <span class=" -Color -Color-Bold">INFO    </span> | <span class=" -Color -Color-Cyan">shift_interface</span>:<span class=" -Color -Color-Cyan">shift_model_builder</span>:<span class=" -Color -Color-Cyan">222</span> - <span class=" -Color -Color-Bold">Created transformer mappers</span>
+<span class=" -Color -Color-Green">2025-05-14 20:31:00.062</span> | <span class=" -Color -Color-Bold">INFO    </span> | <span class=" -Color -Color-Cyan">shift_interface</span>:<span class=" -Color -Color-Cyan">shift_model_builder</span>:<span class=" -Color -Color-Cyan">225</span> - <span class=" -Color -Color-Bold">Created phase mapper</span>
+<span class=" -Color -Color-Green">2025-05-14 20:31:00.074</span> | <span class=" -Color -Color-Bold">INFO    </span> | <span class=" -Color -Color-Cyan">shift_interface</span>:<span class=" -Color -Color-Cyan">shift_model_builder</span>:<span class=" -Color -Color-Cyan">241</span> - <span class=" -Color -Color-Bold">Created voltage mapper</span>
+<span class=" -Color -Color-Green">2025-05-14 20:31:00.075</span> | <span class=" -Color -Color-Bold">INFO    </span> | <span class=" -Color -Color-Cyan">shift_interface</span>:<span class=" -Color -Color-Cyan">shift_model_builder</span>:<span class=" -Color -Color-Cyan">249</span> - <span class=" -Color -Color-Bold">Created equipment mapper</span>
+<span class=" -Color -Color-Green">2025-05-14 20:31:00.333</span> | <span class=" -Color -Color-Bold">INFO    </span> | <span class=" -Color -Color-Cyan">shift_interface</span>:<span class=" -Color -Color-Cyan">shift_model_builder</span>:<span class=" -Color -Color-Cyan">257</span> - <span class=" -Color -Color-Bold">Sucessfully built the gdm system</span>
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">System                              </span>
+┏━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> Property             </span>┃<span style="font-weight: bold">     Value </span>┃
+┡━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━┩
+│ System name          │ gdm_model │
+│ Data format version  │     2.0.1 │
+│ Components attached  │       864 │
+│ Time Series attached │         0 │
+│ Description          │           │
+└──────────────────────┴───────────┘
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">Component Information                       </span>
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
+┃<span style="font-weight: bold"> Type                             </span>┃<span style="font-weight: bold"> Count </span>┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
+│ DistributionBus                  │   218 │
+│ DistributionLoad                 │    54 │
+│ DistributionTransformer          │    16 │
+│ DistributionTransformerEquipment │     1 │
+│ DistributionVoltageSource        │     1 │
+│ LoadEquipment                    │    54 │
+│ Location                         │   202 │
+│ MatrixImpedanceBranch            │   201 │
+│ MatrixImpedanceBranchEquipment   │     3 │
+│ PhaseLoadEquipment               │   108 │
+│ PhaseVoltageSourceEquipment      │     3 │
+│ VoltageSourceEquipment           │     1 │
+│ WindingEquipment                 │     2 │
+└──────────────────────────────────┴───────┘
+</pre>
+</div></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./gdm_ecosystem"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ditto.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">DiTTo</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="erad.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ERAD</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Aadil Latif
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
