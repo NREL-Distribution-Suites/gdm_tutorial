@@ -142,6 +142,7 @@ class AreaBasedLoadMapper(EdgeEquipmentMapper):
                             r1=Resistance(1e-5, "ohm"),
                             x0=Reactance(1e-5, "ohm"),
                             x1=Reactance(1e-5, "ohm"),
+                            voltage_type='line-to-ground',
                             voltage=Voltage(27, "kilovolt"),
                             angle=Angle(0, "degree"),
                         )
